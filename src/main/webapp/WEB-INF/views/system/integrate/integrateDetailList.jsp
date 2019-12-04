@@ -28,10 +28,10 @@
 					<input type="text" placeholder="输入商户号" name="merchantId" id="merchantId"
 						class="input form-control"> <span class="input-group-btn"></span>
 				</div><br>
-				<div class="input-group">
-					<input type="text" placeholder="输入姓名" name="name" id="name"
-						class="input form-control"> <span class="input-group-btn"></span>
-				</div>
+				<%--<div class="input-group">--%>
+					<%--<input type="text" placeholder="输入姓名" name="name" id="name"--%>
+						<%--class="input form-control"> <span class="input-group-btn"></span>--%>
+				<%--</div>--%>
 				<div class="input-group">
 					<input type="text" placeholder="输入手机号" name="phone" id="phone"
 						class="input form-control"> <span class="input-group-btn"></span>
@@ -145,6 +145,9 @@
 				if(value == "transfer"){
 					return '划拨';
 				}
+				if(value == "good"){
+					return '点赞';
+				}
 			}
 		}, {	
 			field : 'agentId',
@@ -168,7 +171,7 @@
 			valign : 'middle',
 			formatter:function (value) {
 				if(value == "0000"){
-					return "帐期机器人";
+					return "精彩生活";
 				}
 			}
 		}, {

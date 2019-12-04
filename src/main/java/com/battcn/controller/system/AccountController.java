@@ -85,7 +85,7 @@ public class AccountController extends BaseController {
             map.put("merchantId", merchantId);
         }
         if(!"".equals(merName)){
-//            merName = new String(merName.getBytes("iso8859-1"), "utf-8");
+            merName = new String(merName.getBytes("iso8859-1"), "utf-8");
             map.put("merName", merName);
         }
         if(!"".equals(agentId)){

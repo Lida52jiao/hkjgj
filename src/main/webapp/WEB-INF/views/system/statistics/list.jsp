@@ -54,6 +54,8 @@
                         <option value ="ld16">小额落地C2</option>
                         <option value ="ld13">落地小额D</option>
                         <option value ="ld17">组合计划T</option>
+                        <option value ="sq">小额落地S</option>
+                    <%--</c:if>--%>
                     </select>
                 </div></div>
 
@@ -100,7 +102,7 @@
             var finishTime = $("#finishTime").val();
             $.ajax({
                 url: rootPath + '/Statistics/total.shtml?startTime='+startTime+"&finishTime="+finishTime,
-                type: 'POST',
+                type: "POST",
                 async: true,
                 cache: false,
                 contentType: "text/plain",
@@ -247,6 +249,12 @@
                 }
                 if(value == "ld17"){
                     return "组合计划T";
+                }
+                if(value == "ybq"){
+                    return "大额快捷M";
+                }
+                if(value == "sq"){
+                return "小额落地S";
                 }
             }
         },{

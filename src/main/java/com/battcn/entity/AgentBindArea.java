@@ -15,7 +15,7 @@ public class AgentBindArea implements Serializable {
     private Long id;
     @Column(name = "agentId")
     private String agentId;
-    @Column(name = "merChantId")
+    @Column(name = "merchantId")
     private String merChantId;
     @Column(name = "areaCode")
     private String areaCode;

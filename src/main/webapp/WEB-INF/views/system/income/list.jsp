@@ -15,10 +15,10 @@
 					 ${key.description}  
 				</c:forEach>
 			</div>
-			<form role="form" class="form-inline" id="userSearchFormIncome">
-					<label class="col-sm-2 control-label" id="profit-label">分润分配模式为：</label>
-					<input id="profit" name="profit"  class="form-control" disabled="disabled" type="text" value="${profit}">
-			</form>
+			<%--<form role="form" class="form-inline" id="userSearchFormIncome">--%>
+					<%--<label class="col-sm-2 control-label" id="profit-label">分润分配模式为：</label>--%>
+					<%--<input id="profit" name="profit"  class="form-control" disabled="disabled" type="text" value="${profit}">--%>
+			<%--</form>--%>
 			<div class="table-responsive">
 				<table id="incomeTable" data-toolbar="#toolbar"
 					data-show-refresh="true" data-show-toggle="true"
@@ -83,16 +83,16 @@
 
 <script type="text/javascript">
 
-var isProfit = $("#profit").val();
-if(isProfit == "settled"){
-	$("#profit").val("固定返佣");
-}else if(isProfit == "rate"){
-	$("#profit").val("升级降费率");
-}
-if(isProfit == "rate"){
-	$("#showbutton").attr("style","display:none;");//隐藏div
-	$("#incomeTable").attr("style","display:none;");//隐藏table
-}
+//var isProfit = $("#profit").val();
+//if(isProfit == "settled"){
+//	$("#profit").val("固定返佣");
+//}else if(isProfit == "rate"){
+//	$("#profit").val("升级降费率");
+//}
+//if(isProfit == "rate"){
+//	$("#showbutton").attr("style","display:none;");//隐藏div
+//	$("#incomeTable").attr("style","display:none;");//隐藏table
+//}
 </script>
 <script>
 $("#twoagent").val(${subsidy.twoagent*10000});
@@ -192,94 +192,94 @@ $(function(){
 		$('#usedTable').bootstrapTable('refresh');
 	} */
 	//重写参数传递
-	 function queryParamsIncome(params) {
-		var pageSize = params.limit;
-		var sort = params.sort;
-		var offset = params.offset;
-		var order = params.order;
-		var pageNum = offset / pageSize + 1;
-		return {
-			pageSize : pageSize,
-			pageNum : pageNum,
-			sort : sort,
-			order : order
-		}
-	} 
-	$('#incomeTable').bootstrapTable({
-		url : rootPath + '/Income/getList.shtml',
-		height : '100%',
-		sortName : 'id',
-		sortOrder : 'desc',
-		ajaxOptions: {async:true,timeout:50000},
-		showColumns : true,
-		showExport : true,
-		striped : true,
-		pagination : true,
-		pageNumber : 1,
-		pageSize : 10,
-		pageList : "[10,20,30,All]",
-		search : false,
-		sidePagination : 'server',//服务端分页  client //客户端分页
-		idField : 'id',
-		uniqueId : 'id',
-		responseHandler : responseHandler, //处理分页函数
-		queryParams : queryParamsIncome,//参数处理函数
-		minimumCountColumns : 2,
-		columns : [ {
-			checkbox : true
-		}, {
-			field : 'level',
-			title : '级别名',
-			align : 'center',
-			valign : 'middle'
-		}, {
-			field : 'first',
-			title : '还款直接分润(万分之)',
-			align : 'center',
-			valign : 'middle',
-			formatter:function (value) {
-				return parseFloat((value*10000)).toFixed(2);
-			}
-		}, {
-			field : 'second',
-			title : '还款间接分润(万分之)',
-			align : 'center',
-			valign : 'middle',
-			formatter:function (value) {
-				return parseFloat((value*10000)).toFixed(2);
-			}
-		}, {
-			field : 'third',
-			title : '还款间间接分润(万分之)',
-			align : 'center',
-			valign : 'middle',
-			formatter:function (value) {
-				return parseFloat((value*10000)).toFixed(2);
-			}
-		}, {
-			field : 'brushFirst',
-			title : '无卡直接分润(万分之)',
-			align : 'center',
-			valign : 'middle',
-			formatter:function (value) {
-				return parseFloat((value*10000)).toFixed(2);
-			}
-		}, {
-			field : 'brushSecond',
-			title : '无卡间接分润(万分之)',
-			align : 'center',
-			valign : 'middle',
-			formatter:function (value) {
-				return parseFloat((value*10000)).toFixed(2);
-			}
-		}, {
-			field : 'brushThird',
-			title : '无卡间间接分润(万分之)',
-			align : 'center',
-			valign : 'middle',
-			formatter:function (value) {
-				return parseFloat((value*10000)).toFixed(2);
-			}
-		}]
-	});
+//	 function queryParamsIncome(params) {
+//		var pageSize = params.limit;
+//		var sort = params.sort;
+//		var offset = params.offset;
+//		var order = params.order;
+//		var pageNum = offset / pageSize + 1;
+//		return {
+//			pageSize : pageSize,
+//			pageNum : pageNum,
+//			sort : sort,
+//			order : order
+//		}
+//	}
+//	$('#incomeTable').bootstrapTable({
+//		url : rootPath + '/Income/getList.shtml',
+//		height : '100%',
+//		sortName : 'id',
+//		sortOrder : 'desc',
+//		ajaxOptions: {async:true,timeout:50000},
+//		showColumns : true,
+//		showExport : true,
+//		striped : true,
+//		pagination : true,
+//		pageNumber : 1,
+//		pageSize : 10,
+//		pageList : "[10,20,30,All]",
+//		search : false,
+//		sidePagination : 'server',//服务端分页  client //客户端分页
+//		idField : 'id',
+//		uniqueId : 'id',
+//		responseHandler : responseHandler, //处理分页函数
+//		queryParams : queryParamsIncome,//参数处理函数
+//		minimumCountColumns : 2,
+//		columns : [ {
+//			checkbox : true
+//		}, {
+//			field : 'level',
+//			title : '级别名',
+//			align : 'center',
+//			valign : 'middle'
+//		}, {
+//			field : 'first',
+//			title : '还款直接分润(万分之)',
+//			align : 'center',
+//			valign : 'middle',
+//			formatter:function (value) {
+//				return parseFloat((value*10000)).toFixed(2);
+//			}
+//		}, {
+//			field : 'second',
+//			title : '还款间接分润(万分之)',
+//			align : 'center',
+//			valign : 'middle',
+//			formatter:function (value) {
+//				return parseFloat((value*10000)).toFixed(2);
+//			}
+//		}, {
+//			field : 'third',
+//			title : '还款间间接分润(万分之)',
+//			align : 'center',
+//			valign : 'middle',
+//			formatter:function (value) {
+//				return parseFloat((value*10000)).toFixed(2);
+//			}
+//		}, {
+//			field : 'brushFirst',
+//			title : '无卡直接分润(万分之)',
+//			align : 'center',
+//			valign : 'middle',
+//			formatter:function (value) {
+//				return parseFloat((value*10000)).toFixed(2);
+//			}
+//		}, {
+//			field : 'brushSecond',
+//			title : '无卡间接分润(万分之)',
+//			align : 'center',
+//			valign : 'middle',
+//			formatter:function (value) {
+//				return parseFloat((value*10000)).toFixed(2);
+//			}
+//		}, {
+//			field : 'brushThird',
+//			title : '无卡间间接分润(万分之)',
+//			align : 'center',
+//			valign : 'middle',
+//			formatter:function (value) {
+//				return parseFloat((value*10000)).toFixed(2);
+//			}
+//		}]
+//	});
 </script>

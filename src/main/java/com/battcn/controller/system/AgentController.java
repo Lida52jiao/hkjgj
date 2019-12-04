@@ -183,6 +183,7 @@ public class AgentController extends BaseController {
 			if(h != null){
 				List<Agent> list=new ArrayList<Agent>();
 				List<Agent> agentList = get(list,h);
+				agentList.add(h);
 				Agent t=new Agent();
 				t.setMerId(k.getMerId());
 				if(agentList.contains(agentService.findByObject(t))){
@@ -211,10 +212,10 @@ public class AgentController extends BaseController {
 				}
 			}
 			Agent agent=new Agent();
-			agent.setMerId("1");
+			//agent.setMerId("1");
 			PageInfo<Agent> page = agentService.queryPageForList(n);
 			PageInfo<Agent> newPage = new PageInfo<Agent>();
-			List<Agent> hList=agentService.queryObjectForList();
+			List<Agent> hList=agentService.queryObjectForList(n);
 			List<Agent> nlist =new ArrayList<>();
 			for (Agent a : hList) {
 				if(a != null) {

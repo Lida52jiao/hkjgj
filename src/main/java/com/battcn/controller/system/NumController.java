@@ -1,5 +1,6 @@
 package com.battcn.controller.system;
 
+import com.battcn.util.BigDecimalUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,29 +35,40 @@ public class NumController extends BaseController {
 	@SystemLog(module = "商户管理", methods = "商户升级模式")
 	public String numList(Model model) {
 		model.addAttribute("res", findResByUser());
-		model.addAttribute("enjoy", enjoyService.getEnjoy());
+		//model.addAttribute("enjoy", enjoyService.getEnjoy());
 		return "/system/num/list";
 	}
 	@RequestMapping("getNumList")
 	@ResponseBody
 	public PageInfo<Num> getNumList() {
 		UserEntity k=UserEntityUtil.getUserFromSession();
-		NumExample example = new NumExample();
-		example.or().andViptypeEqualTo("F");
-		PageInfo<Num> page = numService.getList(example);
+
+		PageInfo<Num> page = numService.getList();
 		return page;
 	}
-	
+
 	@RequestMapping("editNum")
 	public String editNum(Model model,Long id) {
-		model.addAttribute("num", numService.getNum(id));
+		Num num = numService.getNum(id);
+		model.addAttribute("num", num);
 		return "/system/num/editNum";
 	}
-	
+
 	@RequestMapping(value="alert",produces="text/html;charset=UTF-8;")
 	@ResponseBody
-	public String alert(Num num) {
-		Integer count = numService.editNum(num);
+	public String alert(Long id, double num, Long validtime, double visitor, double vip, double highvip, double channel, double agent, double area, double institution) {
+		Num record = new Num();
+		record.setId(id);
+		record.setNum(BigDecimalUtil.round(BigDecimalUtil.mul(num,100D),0).longValue());
+		record.setValidtime(validtime);
+		record.setVisitor(BigDecimalUtil.round(BigDecimalUtil.mul(visitor,100D),0).longValue());
+		record.setVip(BigDecimalUtil.round(BigDecimalUtil.mul(vip,100D),0).longValue());
+		record.setHighvip(BigDecimalUtil.round(BigDecimalUtil.mul(highvip,100D),0).longValue());
+		record.setChannel(BigDecimalUtil.round(BigDecimalUtil.mul(channel,100D),0).longValue());
+		record.setAgent(BigDecimalUtil.round(BigDecimalUtil.mul(agent,100D),0).longValue());
+		record.setArea(BigDecimalUtil.round(BigDecimalUtil.mul(area,100D),0).longValue());
+		record.setInstitution(BigDecimalUtil.round(BigDecimalUtil.mul(institution,100D),0).longValue());
+		Integer count = numService.editNum(record);
 		if(count == 1){
 			return "修改成功！！";
 		}
@@ -75,16 +87,16 @@ public class NumController extends BaseController {
 		UserEntity k=UserEntityUtil.getUserFromSession();
 		NumExample example = new NumExample();
 		example.or().andViptypeEqualTo("T");
-		PageInfo<Num> page = numService.getList(example);
+		PageInfo<Num> page = numService.getList();
 		return page;
 	}
-	
+
 	@RequestMapping("editNumT")
 	public String editNumApp(Model model,Long id) {
 		model.addAttribute("num", numService.getNum(id));
 		return "/system/num/appEditNum";
 	}
-	
+
 	@RequestMapping(value="alertT",produces="text/html;charset=UTF-8;")
 	@ResponseBody
 	public String alertAppT(Num num) {

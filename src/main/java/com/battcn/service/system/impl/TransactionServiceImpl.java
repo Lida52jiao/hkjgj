@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.battcn.entity.*;
 import com.battcn.service.system.*;
+import com.battcn.util.SnowflakeIdWorker;
 import org.apache.commons.collections.map.HashedMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,6 +47,11 @@ public class TransactionServiceImpl extends BaseServiceImpl<Transaction> impleme
 	@Autowired
 	private AgentRateService agentRateService;
 //	private TransactionService transactionService;
+	@Autowired
+	private NumService numService;
+	@Autowired
+	private OrderService orderService;
+
 	@Override
 	public PageInfo<Transaction> selectPageForList(String merId,String agentName,String merChantId) {
 		
@@ -167,6 +173,24 @@ public class TransactionServiceImpl extends BaseServiceImpl<Transaction> impleme
 		MerChants m = new MerChants();
 		m.setMerChantId(merChantId);
 		MerChants newm = merChantsService.findByObject(m);
+		Num num = numService.get(agentlevel);
+		Orders order = new Orders();
+		order.setMerChantId(newm.getMerChantId());
+		order.setPayType(num.getPaytype());
+		SnowflakeIdWorker snowflakeIdWorker = new SnowflakeIdWorker(1,1);
+		String orderNo = "T" + snowflakeIdWorker.nextId();
+		order.setMerName(newm.getMerName());
+		order.setMerMp(newm.getMerMp());
+		order.setAgentId(newm.getAgentId());
+		order.setPayType(num.getPaytype());
+		order.setMerType(newm.getMerType());
+		order.setRank(num.getMertype());
+		order.setCreatDate(String.valueOf(System.currentTimeMillis()));
+		order.setAmount(num.getNum());
+		order.setState("SUCCESS");
+		order.setOrderNo(orderNo);
+		order.setShare("N");
+		orderService.save(order);
 		AgentLevelMerType levelType = new AgentLevelMerType();
 		levelType.setAgentLevel(agentlevel);
 		//查询代理等级对应的商户等级

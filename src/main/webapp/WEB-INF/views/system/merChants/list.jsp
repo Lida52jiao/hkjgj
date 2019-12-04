@@ -59,8 +59,10 @@
 				<div class="input-group">
 					<select name="agentStatus" id="agentStatus" class="input form-control">
 						<option value ="">请选择代理商等级</option>
-						<option value ="1">代理商</option>
-						<option value ="2">运营商</option>
+						<option value ="1">渠道商</option>
+						<option value ="2">代理商</option>
+						<option value ="3">区代</option>
+						<option value ="4">机构</option>
 					</select>
 					<span class="input-group-btn">
 					</span>
@@ -68,8 +70,9 @@
 				<div class="input-group">
 					<select name="merType" id="merType" class="input form-control">
 						<option value ="">请选择商户等级</option>
-						<option value ="1">小咖</option>
-						<option value ="2">大咖</option>
+						<option value ="1">游客</option>
+						<option value ="2">初级用户</option>
+						<option value ="3">高级用户</option>
 					</select>
 					<span class="input-group-btn">
 					</span>
@@ -366,10 +369,16 @@
 						return '不是代理商';
 					}
 					if(value == "1"){
-						return '代理商';
+						return '渠道商';
 					}
 					if(value == "2"){
-						return '运营商';
+						return '代理商';
+					}
+					if(value == "3"){
+						return '区代';
+					}
+					if(value == "4"){
+						return '机构';
 					}
 				}
 		}, {

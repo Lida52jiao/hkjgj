@@ -155,9 +155,10 @@ public class IntegrateServiceImpl implements IntegrateService {
 		map.put("pageNum", pageNum.toString());
 		map.put("pageSize", pageSize.toString());
 		map.put("sort", orderField);
-		map.put("order", orderDirection);
+		//map.put("order", orderDirection);
 		String url = "http://47.104.25.59:1090/config/findConfig";
 		String result=new HttpClientUtils().doPost(url,map);
+		System.out.println("11111111111111111111111111111111"+result);
 		JSONObject t = JSONObject.parseObject(result);
 		String data = t.getString("data");
 		return JSON.parseObject(data,PageInfo.class);

@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="form-group">
 				<label class="col-sm-3 control-label">金额：</label>
 				<div class="col-sm-8">
-					<input id="num" name="num"  class="form-control" onblur="numAll()" type="text" value="${num.num}">
+					<input id="num" name="num"  class="form-control" onblur="numAll()" type="text" value="${num.num/100}">
 						<span class="help-block m-b-none">
 				</div>
 			</div>
@@ -22,79 +22,51 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">上级商户：</label>
+				<label class="col-sm-3 control-label">游客分润：</label>
 				<div class="col-sm-8">
-					<input id="onemerchant" name="onemerchant"  class="form-control" type="text" value="${num.onemerchant}">
+					<input id="visitor" name="visitor"  class="form-control" type="text" value="${num.visitor/100}">
 						<span class="help-block m-b-none">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">上上级商户：</label>
+				<label class="col-sm-3 control-label">初级用户分润：</label>
 				<div class="col-sm-8">
-					<input id="twomerchant" name="twomerchant"  class="form-control" type="text" value="${num.twomerchant}">
+					<input id="vip" name="vip"  class="form-control" type="text" value="${num.vip/100}">
 						<span class="help-block m-b-none">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">上上上级商户：</label>
+				<label class="col-sm-3 control-label">高级用户分润：</label>
 				<div class="col-sm-8">
-					<input id="threemerchant" name="threemerchant"  class="form-control" type="text" value="${num.threemerchant}">
+					<input id="highvip" name="highvip"  class="form-control" type="text" value="${num.highvip/100}">
 						<span class="help-block m-b-none">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">直接代理：</label>
+				<label class="col-sm-3 control-label">渠道商分润：</label>
 				<div class="col-sm-8">
-					<input id="oneagent" name="oneagent"  class="form-control" type="text" value="${num.oneagent}">
+					<input id="channel" name="channel"  class="form-control" type="text" value="${num.channel/100}">
 						<span class="help-block m-b-none">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">上上级代理：</label>
+				<label class="col-sm-3 control-label">代理商分润：</label>
 				<div class="col-sm-8">
-					<input id="twoagent" name="twoagent"  class="form-control" type="text" value="${num.twoagent}">
+					<input id="agent" name="agent"  class="form-control" type="text" value="${num.agent/100}">
 						<span class="help-block m-b-none">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">县级代理：</label>
+				<label class="col-sm-3 control-label">区代分润：</label>
 				<div class="col-sm-8">
-					<input id="countyagent" name="countyagent"  class="form-control" type="text" value="${num.countyagent}">
+					<input id="area" name="area"  class="form-control" type="text" value="${num.area/100}">
 						<span class="help-block m-b-none">
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-3 control-label">市级代理：</label>
+				<label class="col-sm-3 control-label">机构分润：</label>
 				<div class="col-sm-8">
-					<input id="cityagent" name="cityagent"  class="form-control" type="text" value="${num.cityagent}">
-						<span class="help-block m-b-none">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">省级代理：</label>
-				<div class="col-sm-8">
-					<input id="provinceagent" name="provinceagent"  class="form-control" type="text" value="${num.provinceagent}">
-						<span class="help-block m-b-none">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">顶级代理：</label>
-				<div class="col-sm-8">
-					<input id="topagent" name="topagent"  class="form-control" type="text" value="${num.topagent}">
-						<span class="help-block m-b-none">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">平台：</label>
-				<div class="col-sm-8">
-					<input id="institution" name="institution"  class="form-control" type="text" value="${num.institution}">
-						<span class="help-block m-b-none">
-				</div>
-			</div>
-			<div class="form-group">
-				<label class="col-sm-3 control-label">推荐人数：</label>
-				<div class="col-sm-8">
-					<input id="amount" name="amount"  class="form-control" type="text" value="${num.amount}">
+					<input id="institution" name="institution"  class="form-control" type="text" value="${num.institution/100}">
 						<span class="help-block m-b-none">
 				</div>
 			</div>
@@ -104,15 +76,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script>
    $(document).ready(function(){$(".i-checks").iCheck({checkboxClass:"icheckbox_square-green",radioClass:"iradio_square-green",})});
 </script>
-<script type="text/javascript">
-function numAll(){
-	var amount = $("#num").val();
-	if(amount > 5000){
-		layer.confirm("升级金额大于5000无法使用在线付费，系统默认联系客户!!");
-	}
+<%--<script type="text/javascript">--%>
+<%--function numAll(){--%>
+	<%--var amount = $("#num").val();--%>
+	<%--if(amount > 5000){--%>
+		<%--layer.confirm("升级金额大于5000无法使用在线付费，系统默认联系客户!!");--%>
+	<%--}--%>
 
-}
-</script>
+<%--}--%>
+<%--</script>--%>
 <script type="text/javascript">
 
  $(function(){

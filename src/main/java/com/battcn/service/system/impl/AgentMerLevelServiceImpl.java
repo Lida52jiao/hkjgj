@@ -68,15 +68,16 @@ public class AgentMerLevelServiceImpl implements AgentMerLevelService {
 
 	@Override
 	public Integer addManage(AgentMerLevel level) {
-		Integer count = agentMerLevelMapper.insert(level);
-		Num num = new Num();
-		num.setMertype(String.valueOf(level.getLevelweight()));
-		num.setLevel(level.getLevelname());
-		num.setPaytype("hy"+String.valueOf(level.getLevelweight()));
-		num.setViptype("F");
-		num.setLevelweight(Long.valueOf(level.getLevelweight()));
-		numService.addNum(num);
-		return count;
+//		Integer count = agentMerLevelMapper.insert(level);
+//		Num num = new Num();
+//		num.setMertype(String.valueOf(level.getLevelweight()));
+//		num.setLevel(level.getLevelname());
+//		num.setPaytype("hy"+String.valueOf(level.getLevelweight()));
+//		num.setViptype("F");
+//		num.setLevelweight(Long.valueOf(level.getLevelweight()));
+//		numService.addNum(num);
+//		return count;
+		return null;
 	}
 
 	@Override

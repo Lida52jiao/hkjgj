@@ -20,43 +20,43 @@
 					data-show-footer="false" data-mobile-responsive="true">
 				</table>
 			</div>
-			<form class="form-horizontal m-t required-validate" id="paymentNum">
-					<label class="col-sm-3 control-label"><span style="color: red;">小咖升级大咖缴费金额：</span></label>
-					<div class="col-sm-5">
-						<input name="id" id="id" type="hidden" value="${payment.id }" />
-						 <input name="paymentNum" id="paymentNum" type="text" value="${payment.paymentNum/100 }" />
-	    			 </div>
-					<span  style="margin-left:300px;" ><input class="btn btn btn-primary" type="button" value="提交" onclick="saveChangeAmount()"></span>
-			</form>
+			<%--<form class="form-horizontal m-t required-validate" id="paymentNum">--%>
+					<%--<label class="col-sm-3 control-label"><span style="color: red;">小咖升级大咖缴费金额：</span></label>--%>
+					<%--<div class="col-sm-5">--%>
+						<%--<input name="id" id="id" type="hidden" value="${payment.id }" />--%>
+						 <%--<input name="paymentNum" id="paymentNum" type="text" value="${payment.paymentNum/100 }" />--%>
+	    			 <%--</div>--%>
+					<%--<span  style="margin-left:300px;" ><input class="btn btn btn-primary" type="button" value="提交" onclick="saveChangeAmount()"></span>--%>
+			<%--</form>--%>
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
-$(function(){
-	saveChangeAmount = function(obj) {
-		var changeAmount = $("#changeAmount").val();
-		if(changeAmount == ''){
-			alert('升级金额不能为空')
-			return false;
-		}else if($("#paymentNum").valid()){
-  			$.ajax({
-				type: "POST", 
-				url: rootPath + "/KSPaymentFix/confirm.shtml",
-				data: $('#paymentNum').serializeArray(),
-				success: function(data){
-					layer.confirm(data, function(index) {
-						battcn.closeWindow();
-						$('#paymentNumTables').bootstrapTable('refresh');
-			        	return false;
- 						});
+<%--<script type="text/javascript">--%>
+<%--$(function(){--%>
+	<%--saveChangeAmount = function(obj) {--%>
+		<%--var changeAmount = $("#changeAmount").val();--%>
+		<%--if(changeAmount == ''){--%>
+			<%--alert('升级金额不能为空')--%>
+			<%--return false;--%>
+		<%--}else if($("#paymentNum").valid()){--%>
+  			<%--$.ajax({--%>
+				<%--type: "POST", --%>
+				<%--url: rootPath + "/KSPaymentFix/confirm.shtml",--%>
+				<%--data: $('#paymentNum').serializeArray(),--%>
+				<%--success: function(data){--%>
+					<%--layer.confirm(data, function(index) {--%>
+						<%--battcn.closeWindow();--%>
+						<%--$('#paymentNumTables').bootstrapTable('refresh');--%>
+			        	<%--return false;--%>
+ 						<%--});--%>
 
-				}
-			});
-  		}
-	} 
-	
- }); 
-</script>
+				<%--}--%>
+			<%--});--%>
+  		<%--}--%>
+	<%--} --%>
+	<%----%>
+ <%--}); --%>
+<%--</script>--%>
 <script type="text/javascript">
 	function getpaymentNumId() {
 		return $.map($("#paymentNumTables").bootstrapTable('getSelections'), function(

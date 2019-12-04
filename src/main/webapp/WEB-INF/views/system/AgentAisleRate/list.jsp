@@ -108,6 +108,18 @@
 								 <c:if test="${key.aislecode=='ld17'}">
 									 <option value ="${key.aislecode}">组合计划T </option>
 								 </c:if>
+								 <c:if test="${key.aislecode=='ybq'}">
+									 <option value ="${key.aislecode}">大额快捷M </option>
+								 </c:if>
+								 <c:if test="${key.aislecode=='ybc'}">
+									 <option value ="${key.aislecode}">云闪付M </option>
+								 </c:if>
+								 <c:if test="${key.aislecode=='ybcs'}">
+									 <option value ="${key.aislecode}">云闪付小额 </option>
+								 </c:if>
+								 <c:if test="${key.aislecode=='sq'}">
+									 <option value ="${key.aislecode}">小额落地S </option>
+								 </c:if>
 							</c:forEach>
 	  				</select>
 					 <span class="input-group-btn">
@@ -304,6 +316,12 @@
                 if(value == "ld17"){
                     return "组合计划T";
                 }
+                if(value == "ybq"){
+                    return "大额快捷M";
+                }
+				if(value == "sq"){
+					return "小额落地S";
+				}
 			}
 		}, {
 			field : 'aislecode',
@@ -338,7 +356,7 @@
 			valign : 'middle',
 			formatter:function (value) {
 				if(value == "0000"){
-					return "帐期机器人";
+					return "精彩生活";
 				}
 			}
 		}]

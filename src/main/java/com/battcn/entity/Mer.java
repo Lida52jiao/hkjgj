@@ -69,7 +69,17 @@ public class Mer implements Serializable {
 	private BigDecimal balanceFrozen;
 	
 	private BigDecimal balanceProfitFrozen;
-	
+
+	private Integer isNotUse;
+
+	public Integer getIsNotUse() {
+		return isNotUse;
+	}
+
+	public void setIsNotUse(Integer isNotUse) {
+		this.isNotUse = isNotUse;
+	}
+
 	private List<String> list;
 	
 	public Mer() {

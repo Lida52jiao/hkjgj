@@ -101,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}else if($("#bindArea").valid()){
   			$.ajax({
 				type: "POST",
-				url: "http://47.105.150.17/" + "/Agent/confirm?merId="+merId+"&merChantId="+merChantId+"&province="+province+"&city="+city+"&region="+region,
+				url: rootPath + "/Agent/confirm.shtml?merId="+merId+"&merChantId="+merChantId+"&province="+province+"&city="+city+"&region="+region,
 				/*data: $('#bindArea').serializeArray(),*/
 				success: function(data){
 					layer.confirm(data, function(index) {

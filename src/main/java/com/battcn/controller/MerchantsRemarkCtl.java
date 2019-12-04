@@ -4,19 +4,15 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.battcn.entity.Agent;
 import com.battcn.entity.AgentLevelMerType;
 import com.battcn.entity.AgentRate;
 import com.battcn.entity.MerChants;
 import com.battcn.entity.MerChantsRate;
-import com.battcn.entity.MerCode;
 import com.battcn.entity.MerchantsRemark;
 import com.battcn.entity.Rates;
 import com.battcn.entity.Transaction;
@@ -82,7 +78,7 @@ public class MerchantsRemarkCtl {
 				userFormMap.setPassWord("123456");//"123456"
 				UserEntity r=PasswordHelper.encryptPassword(userFormMap);
 				//merName mermp accountnumber password mail box onemerid 
-				Agent n=new Agent(rr.getMername(), rr.getMermp(), rr.getMermp(), r.getPassWord(), ".com", "T00000009", System.currentTimeMillis()+"");
+				Agent n=new Agent(rr.getMername(), rr.getMermp(), rr.getMermp(), r.getPassWord(), ".com", "T00000013", System.currentTimeMillis()+"");
 				agentService.save(n);
 				Agent h=agentService.findByObject(n);
 				String s = "C" + YJ.formatDate(new Date()) + YJ.formattime(new Date());
@@ -361,7 +357,7 @@ public class MerchantsRemarkCtl {
 							}
 						}
 					} else {
-					mmm.setAgentid("T00000009");
+					mmm.setAgentid("T00000013");
 					merchantsRemarkSeraviceImpl.update(mmm);
 					}
 				}
@@ -383,7 +379,7 @@ public class MerchantsRemarkCtl {
 					return listsqqqqqmmmm.get(0).getAgentid();
 				}
 			}
-			return "T00000009";
+			return "T00000013";
 		}
 	
 }

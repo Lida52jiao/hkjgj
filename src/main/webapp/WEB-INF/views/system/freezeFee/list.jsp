@@ -47,6 +47,7 @@
                         <option value ="ld16">小额落地C2</option>
                         <option value ="ld13">落地小额D</option>
                         <option value ="ld17">组合计划T</option>
+                        <option value ="sq">小额落地S</option>
                     </select>
                 </div>
                 <div class="input-group">

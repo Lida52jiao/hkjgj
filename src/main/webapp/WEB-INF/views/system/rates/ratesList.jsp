@@ -132,6 +132,9 @@
                 if(value == "ld17"){
                     return "组合计划T";
                 }
+				if(value == "sq"){
+					return "小额落地S";
+				}
 			}
 		}]
 	});

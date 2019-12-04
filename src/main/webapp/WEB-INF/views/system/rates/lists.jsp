@@ -60,6 +60,15 @@
 							<c:if test="${key.aislecode=='ld17'}">
 								<option value ="${key.aislecode}">组合计划T </option>
 							</c:if>
+							<c:if test="${key.aislecode=='ld20'}">
+								<option value ="${key.aislecode}">落地还款H </option>
+							</c:if>
+							<c:if test="${key.aislecode=='ybq'}">
+								<option value ="${key.aislecode}">大额快捷M </option>
+							</c:if>
+							<c:if test="${key.aislecode=='sq'}">
+								<option value ="${key.aislecode}">小额落地S </option>
+							</c:if>
 						</c:forEach>
 					</select>
 				</div>

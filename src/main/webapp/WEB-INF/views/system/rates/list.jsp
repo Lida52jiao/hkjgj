@@ -16,10 +16,10 @@
 					<input type="text" placeholder="输入代理商号" name="merId" id="merId"
 						class="input form-control"> <span class="input-group-btn"></span>
 				</div>
-				 <div class="input-group">
-					<input type="text" placeholder="输入商户号" name="merChantId" id="merChantId"
-						class="input form-control"> <span class="input-group-btn"></span>
-				</div>
+				 <%--<div class="input-group">--%>
+					<%--<input type="text" placeholder="输入商户号" name="merChantId" id="merChantId"--%>
+						<%--class="input form-control"> <span class="input-group-btn"></span>--%>
+				<%--</div>--%>
 				<div class="input-group">
 					<select name="appId" id="appId" class="input form-control" >
 						<option value ="">请选择app  </option>
@@ -105,7 +105,7 @@ function queryCode() {
 			layer.msg("请选择编辑项！！");
 			return;
 		}
-		if(cbox == "T00000009"){
+		if(cbox == "T00000013"){
 			layer.msg("总平台不享有编辑自己的权限！！");
 			return;
 		}
@@ -188,10 +188,16 @@ function queryCode() {
 						return '不是代理商';
 					}
 					if(value == "1"){
-						return '代理商';
+						return '渠道商';
 					}
 					if(value == "2"){
-						return '运营商';
+						return '代理商';
+					}
+					if(value == "3"){
+						return '区代';
+					}
+					if(value == "4"){
+						return '机构';
 					}
 				}
 		}, {

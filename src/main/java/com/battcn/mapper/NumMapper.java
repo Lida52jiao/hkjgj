@@ -93,4 +93,10 @@ public interface NumMapper {
      * @mbggenerated
      */
     int updateByPrimaryKey(Num record);
+
+    List<Num> selects();
+
+    Num find(@Param("agentlevel") String agentlevel);
+
+    Num finds(@Param("merType") String merType);
 }

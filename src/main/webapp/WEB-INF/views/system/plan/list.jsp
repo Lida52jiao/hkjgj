@@ -77,14 +77,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									<c:if test="${key.aislecode=='ld15'}">
 										<option value ="${key.aislecode}">落地大额C2 </option>
 									</c:if>
-									<%--<c:if test="${key.aislecode=='ld16'}">
+									<c:if test="${key.aislecode=='ld16'}">
 										<option value ="${key.aislecode}">小额落地C2 </option>
 									</c:if>
-									<c:if test="${key.aislecode=='ld13'}">
+									<%--<c:if test="${key.aislecode=='ld13'}">
 										<option value ="${key.aislecode}">落地小额D </option>
 									</c:if>--%>
 									<c:if test="${key.aislecode=='ld17'}">
 										<option value ="${key.aislecode}">组合计划T </option>
+									</c:if>
+									<c:if test="${key.aislecode=='ybq'}">
+										<option value ="${key.aislecode}">大额快捷M </option>
+									</c:if>
+									<c:if test="${key.aislecode=='ybc'}">
+										<option value ="${key.aislecode}">云闪付M </option>
+									</c:if>
+									<c:if test="${key.aislecode=='sq'}">
+										<option value ="${key.aislecode}">小额落地S </option>
 									</c:if>
 								</c:forEach>
 	  					</select>
@@ -346,15 +355,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 if(value == "ld15"){
                     return "落地大额C2";
                 }
-                /*if(value == "ld16"){
+                if(value == "ld16"){
                     return "小额落地C2";
                 }
-                if(value == "ld13"){
+				/*if(value == "ld13"){
                     return "落地小额D";
                 }*/
                 if(value == "ld17"){
                     return "组合计划T";
                 }
+                if(value == "ybq"){
+                    return "大额快捷M";
+                }
+				if(value == "sq"){
+					return "小额落地S";
+				}
 			}
 		},{
 			field : 'province',

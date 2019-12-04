@@ -714,6 +714,7 @@ public class TradeController extends BaseController {
 		map.put("pageSize", pageSize.toString());
 		map.put("sort", orderField);
 		map.put("order", orderDirection);
+		map.put("institutionId", "T00000013");
 		String result = HttpClientUtil.doPost(Constaint.WsFind, map);
 		System.out.println("result == "+result);
 		JSONObject t = JSONObject.parseObject(result);

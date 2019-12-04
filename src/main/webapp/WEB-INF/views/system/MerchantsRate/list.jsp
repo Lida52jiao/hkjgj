@@ -99,14 +99,26 @@
 								 <c:if test="${key.aislecode=='ld15'}">
 									 <option value ="${key.aislecode}">落地大额C2 </option>
 								 </c:if>
-								 <%--<c:if test="${key.aislecode=='ld16'}">
+								 <c:if test="${key.aislecode=='ld16'}">
 									 <option value ="${key.aislecode}">小额落地C2 </option>
 								 </c:if>
-								 <c:if test="${key.aislecode=='ld13'}">
+								 <%--<c:if test="${key.aislecode=='ld13'}">
 									 <option value ="${key.aislecode}">落地小额D </option>
 								 </c:if>--%>
 								 <c:if test="${key.aislecode=='ld17'}">
 									 <option value ="${key.aislecode}">组合计划T </option>
+								 </c:if>
+								 <c:if test="${key.aislecode=='ybq'}">
+									 <option value ="${key.aislecode}">大额快捷M </option>
+								 </c:if>
+								 <c:if test="${key.aislecode=='ybc'}">
+									 <option value ="${key.aislecode}">云闪付M </option>
+								 </c:if>
+								 <c:if test="${key.aislecode=='ybcs'}">
+									 <option value ="${key.aislecode}">云闪付小额 </option>
+								 </c:if>
+								 <c:if test="${key.aislecode=='sq'}">
+									 <option value ="${key.aislecode}">小额落地S </option>
 								 </c:if>
 							</c:forEach>
 	  				</select>
@@ -224,17 +236,26 @@
 			valign : 'middle',
 			formatter:function merStatFormatter(value) {
                 if(value == "1"){
-                    return "小咖";
+                    return "游客";
                 }
                 if(value == "2"){
-                    return "大咖";
+                    return "初级用户";
                 }
                 if(value == "3"){
-                    return "代理商";
+                    return "高级用户";
                 }
                 if(value == "4"){
-                    return "运营商";
+                    return "渠道商";
                 }
+				if(value == "5"){
+					return "代理商";
+				}
+				if(value == "6"){
+					return "区代";
+				}
+				if(value == "7"){
+					return "机构";
+				}
 			}
 		}, {
 			field : 'aislecode',
@@ -311,15 +332,24 @@
                 if(value == "ld15"){
                     return "落地大额C2";
                 }
-                /*if(value == "ld16"){
+                if(value == "ld16"){
                     return "小额落地C2";
                 }
-                if(value == "ld13"){
-                    return "落地小额D";
-                }*/
                 if(value == "ld17"){
                     return "组合计划T";
                 }
+                if(value == "ybq"){
+                    return "大额快捷M";
+                }
+                if(value == "ybc"){
+                    return "云闪付M";
+                }
+				if(value == "ybcs"){
+					return "云闪付小额";
+				}
+				if(value == "sq"){
+					return "小额落地S";
+				}
 			}
 		}, {
 			field : 'aislecode',
@@ -354,7 +384,7 @@
 			valign : 'middle',
 			formatter:function (value) {
 				if(value == "0000"){
-					return "帐期机器人";
+					return "精彩生活";
 				}
 			}
 		}]

@@ -33,11 +33,11 @@
                        <%--class="input form-control"> <span class="input-group-btn">--%>
                 <%--</span>--%>
             <%--</div>--%>
-            <div class="input-group">
-                <input type="text" placeholder="输入订单号" name="orderNo" id="orderNo"
-                       class="input form-control"> <span class="input-group-btn">
-                </span>
-            </div>
+            <%--<div class="input-group">--%>
+                <%--<input type="text" placeholder="输入订单号" name="orderNo" id="orderNo"--%>
+                       <%--class="input form-control"> <span class="input-group-btn">--%>
+                <%--</span>--%>
+            <%--</div>--%>
             <div class="input-group">
                 <input type="text" placeholder="输入代理商编号" name="agentId" id="agentId"
                        class="input form-control"> <span class="input-group-btn">
@@ -90,7 +90,7 @@
                    data-show-columns="true" data-show-export="true"
                    data-show-footer="false" data-mobile-responsive="true">
             </table>
-            <p style="font-size:15px">消费汇总:<span id="amount" style="color:red;font-size:15px"></span>元</p>
+            <%--<p style="font-size:15px">消费汇总:<span id="amount" style="color:red;font-size:15px"></span>元</p>--%>
         </div>
     </div>
 </div>
@@ -287,24 +287,24 @@
         });
 
     });
-    $(function () {
-        var startTime = $("#startTime").val();
-        var finishTime = $("#finishTime").val();
-        $.ajax({
-            url: rootPath + '/Account/total.shtml?startTime='+startTime+'&finishTime='+finishTime,
-            type: 'POST',
-            async: true,
-            cache: false,
-            contentType: "text/plain",
-            /* dataType: "json",*/
-            processData: false,
-            success: function (data) {
-                $("#amount").html(data/100);
-            },
-            error: function (data) {
-                alert("总金额加载失败!请刷新");
-            }
-        });
-    });
+//    $(function () {
+//        var startTime = $("#startTime").val();
+//        var finishTime = $("#finishTime").val();
+//        $.ajax({
+//            url: rootPath + '/Account/total.shtml?startTime='+startTime+'&finishTime='+finishTime,
+//            type: 'POST',
+//            async: true,
+//            cache: false,
+//            contentType: "text/plain",
+//            /* dataType: "json",*/
+//            processData: false,
+//            success: function (data) {
+//                $("#amount").html(data/100);
+//            },
+//            error: function (data) {
+//                alert("总金额加载失败!请刷新");
+//            }
+//        });
+//    });
 
 </script>

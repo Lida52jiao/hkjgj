@@ -10,9 +10,9 @@
 					 ${key.description}  
 				</c:forEach>
 			</div>
-			<form role="form" class="form-inline" id="numSearchFormNum">
-				<input id="enjoy" name="enjoy"  class="form-control" type="hidden" value="${enjoy }" >
-			</form>
+			<%--<form role="form" class="form-inline" id="numSearchFormNum">--%>
+				<%--<input id="enjoy" name="enjoy"  class="form-control" type="hidden" value="${enjoy }" >--%>
+			<%--</form>--%>
 			<div class="table-responsive">
 				<table id="numTables" data-toolbar="#toolbar"
 					data-show-refresh="true" data-show-toggle="true"
@@ -20,52 +20,52 @@
 					data-show-footer="false" data-mobile-responsive="true">
 				</table>
 			</div>
-			<form class="form-horizontal m-t required-validate" id="enjoyNumber">
-					<label class="col-sm-3 control-label"><span style="color: red;">最低等级是否享受此权益：</span></label>
-					<div class="col-sm-5">
-						 <input name="enjoy" id="isenjoy" type="radio" value="Y" >是
-		    			 <input name="enjoy" id="notenjoy" type="radio" value="N">否
-	    			 </div>
-					<span  style="margin-left:300px;" ><input class="btn btn btn-primary" type="button" value="提交" onclick="saveEnjoy()"></span>
-			</form>
+			<%--<form class="form-horizontal m-t required-validate" id="enjoyNumber">--%>
+					<%--<label class="col-sm-3 control-label"><span style="color: red;">最低等级是否享受此权益：</span></label>--%>
+					<%--<div class="col-sm-5">--%>
+						 <%--<input name="enjoy" id="isenjoy" type="radio" value="Y" >是--%>
+		    			 <%--<input name="enjoy" id="notenjoy" type="radio" value="N">否--%>
+	    			 <%--</div>--%>
+					<%--<span  style="margin-left:300px;" ><input class="btn btn btn-primary" type="button" value="提交" onclick="saveEnjoy()"></span>--%>
+			<%--</form>--%>
 		</div>
 	</div>
 </div>
-<script type="text/javascript">
+<%--<script type="text/javascript">--%>
 
-var isEnjoy = $("#enjoy").val();
- if(isEnjoy == "Y"){
-	$("#isenjoy").attr("checked",true);
-}else if(isEnjoy == "N"){
-	$("#notenjoy").attr("checked",true);
-}
-</script>
-<script type="text/javascript">
-$(function(){
-	saveEnjoy = function(obj) {
-		var enjoy = $('input:radio[name="enjoy"]:checked').val();
-		if(enjoy == null){
-			alert('请选择是否享有此权益！！')
-			return false;
-		}else if($("#enjoyNumber").valid()){
-  			$.ajax({
-				type: "POST", 
-				url: rootPath + "/Enjoy/confirm.shtml",
-				data: $('#enjoyNumber').serializeArray(),
-				success: function(data){
-					layer.confirm(data, function(index) {
-						battcn.closeWindow();
-						$('#numTables').bootstrapTable('refresh');
-			        	return false;
- 						});
+<%--var isEnjoy = $("#enjoy").val();--%>
+ <%--if(isEnjoy == "Y"){--%>
+	<%--$("#isenjoy").attr("checked",true);--%>
+<%--}else if(isEnjoy == "N"){--%>
+	<%--$("#notenjoy").attr("checked",true);--%>
+<%--}--%>
+<%--</script>--%>
+<%--<script type="text/javascript">--%>
+<%--$(function(){--%>
+	<%--saveEnjoy = function(obj) {--%>
+		<%--var enjoy = $('input:radio[name="enjoy"]:checked').val();--%>
+		<%--if(enjoy == null){--%>
+			<%--alert('请选择是否享有此权益！！')--%>
+			<%--return false;--%>
+		<%--}else if($("#enjoyNumber").valid()){--%>
+  			<%--$.ajax({--%>
+				<%--type: "POST", --%>
+				<%--url: rootPath + "/Enjoy/confirm.shtml",--%>
+				<%--data: $('#enjoyNumber').serializeArray(),--%>
+				<%--success: function(data){--%>
+					<%--layer.confirm(data, function(index) {--%>
+						<%--battcn.closeWindow();--%>
+						<%--$('#numTables').bootstrapTable('refresh');--%>
+			        	<%--return false;--%>
+ 						<%--});--%>
 
-				}
-			});
-  		}
-	} 
-	
- }); 
-</script>
+				<%--}--%>
+			<%--});--%>
+  		<%--}--%>
+	<%--} --%>
+	<%----%>
+ <%--}); --%>
+<%--</script>--%>
 <script type="text/javascript">
 	function getUserIdSelectionsNum() {
 		return $.map($("#numTables").bootstrapTable('getSelections'), function(
@@ -135,17 +135,22 @@ $(function(){
 		columns : [ {
 			checkbox : true
 		}, {
-			field : 'mertypeName',
-			title : '商户升级动作',
+			field : 'level',
+			title : '等级名称',
 			align : 'center',
 			valign : 'middle',
-			formatter:function (value) {
-				 return "由上一级别-->"+value;
-				
-			}
 		}, {
-			field : 'num',
-			title : '金额（元）',
+				field : 'num',
+				title : '商户升级金额',
+				align : 'center',
+				valign : 'middle',
+				formatter:function (value) {
+					return value/100;
+
+				}
+			}, {
+			field : 'mertype',
+			title : '商户级别',
 			align : 'center',
 			valign : 'middle'
 		}, {
@@ -154,60 +159,68 @@ $(function(){
 			align : 'center',
 			valign : 'middle'
 		}, {
-			field : 'onemerchant',
-			title : '直推',
+			field : 'visitor',
+			title : '游客分润',
 			align : 'center',
-			valign : 'middle'
+			valign : 'middle',
+			formatter:function (value) {
+				return value/100;
+
+			}
 		}, {
-			field : 'twomerchant',
-			title : '间推',
+			field : 'vip',
+			title : '初级用户分润',
 			align : 'center',
-			valign : 'middle'
+			valign : 'middle',
+			formatter:function (value) {
+				return value/100;
+
+			}
 		}, {
-			field : 'threemerchant',
-			title : '间间推',
+			field : 'highvip',
+			title : '高级用户分润',
 			align : 'center',
-			valign : 'middle'
+			valign : 'middle',
+			formatter:function (value) {
+				return value/100;
+
+			}
 		}, {
-			field : 'oneagent',
-			title : '直接代理',
+			field : 'channel',
+			title : '渠道商分润',
 			align : 'center',
-			valign : 'middle'
+			valign : 'middle',
+			formatter:function (value) {
+				return value/100;
+
+			}
 		}, {
-			field : 'twoagent',
-			title : '间接代理',
+			field : 'agent',
+			title : '代理商分润',
 			align : 'center',
-			valign : 'middle'
+			valign : 'middle',
+			formatter:function (value) {
+				return value/100;
+
+			}
 		}, {
-			field : 'countyagent',
-			title : '县级代理',
+			field : 'area',
+			title : '区代分润',
 			align : 'center',
-			valign : 'middle'
-		}, {
-			field : 'cityagent',
-			title : '市级代理',
-			align : 'center',
-			valign : 'middle'
-		}, {
-			field : 'provinceagent',
-			title : '省级代理',
-			align : 'center',
-			valign : 'middle'
-		}, {
-			field : 'topagent',
-			title : '顶级代理',
-			align : 'center',
-			valign : 'middle'
+			valign : 'middle',
+			formatter:function (value) {
+				return value/100;
+
+			}
 		}, {
 			field : 'institution',
-			title : '平台',
+			title : '机构分润',
 			align : 'center',
-			valign : 'middle'
-		}, {
-			field : 'amount',
-			title : '推荐人数',
-			align : 'center',
-			valign : 'middle'
+			valign : 'middle',
+			formatter:function (value) {
+				return value/100;
+
+			}
 		}]
 	});
 </script>

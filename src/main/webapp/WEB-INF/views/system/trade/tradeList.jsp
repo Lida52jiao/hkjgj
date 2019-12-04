@@ -340,7 +340,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			valign : 'middle',
 			formatter:function (value) {
 				if(value == "0000"){
-					return '帐期机器人';
+					return '精彩生活';
 				}
 			}
 		},{

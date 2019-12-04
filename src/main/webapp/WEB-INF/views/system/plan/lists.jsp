@@ -157,6 +157,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 if(value == "ld17"){
                     return "组合计划T";
                 }
+                if(value == "ybq"){
+                    return "大额快捷M";
+                }
+				if(value == "sq"){
+					return "小额落地S";
+				}
 			}
 		}, {
 			field : 'orderNo',
@@ -373,7 +379,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			valign : 'middle',
 			formatter:function (value) {
 				if(value == "0000"){
-					return "帐期机器人";
+					return "精彩生活";
 				}
 			}
 		}, {

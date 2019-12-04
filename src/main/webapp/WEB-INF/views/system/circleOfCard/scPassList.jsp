@@ -116,6 +116,9 @@
             align : 'center',
             valign : 'middle',
             formatter:function (value) {
+                if(value == null | value == ""){
+                    return "无图片"
+                }
                 return "<a href="+value+" target='_blank'>预览</a>"
 
             }
@@ -125,6 +128,9 @@
             align : 'center',
             valign : 'middle',
             formatter:function (value) {
+                if(value == null | value == ""){
+                    return "无图片"
+                }
                 return "<a href="+value+" target='_blank'>预览</a>"
 
             }
@@ -134,6 +140,9 @@
             align : 'center',
             valign : 'middle',
             formatter:function (value) {
+                if(value == null | value == ""){
+                    return "无图片"
+                }
                 return "<a href="+value+" target='_blank'>预览</a>"
 
             }
@@ -143,6 +152,9 @@
             align : 'center',
             valign : 'middle',
             formatter:function (value) {
+                if(value == null | value == ""){
+                    return "无图片"
+                }
                 return "<a href="+value+" target='_blank'>预览</a>"
 
             }
@@ -152,6 +164,9 @@
             align : 'center',
             valign : 'middle',
             formatter:function (value) {
+                if(value == null | value == ""){
+                    return "无图片"
+                }
                 return "<a href="+value+" target='_blank'>预览</a>"
 
             }
@@ -161,6 +176,9 @@
             align : 'center',
             valign : 'middle',
             formatter:function (value) {
+                if(value == null | value == ""){
+                    return "无图片"
+                }
                 return "<a href="+value+" target='_blank'>预览</a>"
 
             }
@@ -170,6 +188,9 @@
             align : 'center',
             valign : 'middle',
             formatter:function (value) {
+                if(value == null | value == ""){
+                    return "无图片"
+                }
                 return "<a href="+value+" target='_blank'>预览</a>"
 
             }
@@ -179,6 +200,9 @@
             align : 'center',
             valign : 'middle',
             formatter:function (value) {
+                if(value == null | value == ""){
+                    return "无图片"
+                }
                 return "<a href="+value+" target='_blank'>预览</a>"
 
             }
@@ -188,6 +212,9 @@
             align : 'center',
             valign : 'middle',
             formatter:function (value) {
+                if(value == null | value == ""){
+                    return "无图片"
+                }
                 return "<a href="+value+" target='_blank'>预览</a>"
 
             }
@@ -203,7 +230,7 @@
             valign : 'middle',
             formatter:function (value) {
                 if(value == "0000"){
-                    return "帐期机器人";
+                    return "精彩生活";
                 }
             }
         }, {

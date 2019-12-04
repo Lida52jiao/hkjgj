@@ -64,6 +64,7 @@
                         <option value ="ld16">小额落地C2</option>
                         <option value ="ld13">落地小额D</option>
                         <option value ="ld17">组合计划T</option>
+                        <option value ="sq">小额落地S</option>
                     </select>
                 </div></div>
 
@@ -241,6 +242,12 @@
                 if(value == "ld17"){
                     return "组合计划T";
                 }
+                if(value == "ybq"){
+                    return "大额快捷M";
+                }
+                if(value == "sq"){
+                    return "小额落地S";
+                }
             }
         },{
             field : 'totalAmount',
@@ -273,25 +280,7 @@
             valign : 'middle',
             formatter:function (value) {
                 if(value == "0000"){
-                    return '帐期机器人';
-                }
-                if(value == "0001"){
-                    return '卡无优';
-                }
-                if(value == "0002"){
-                    return '信诚管家';
-                }
-                if(value == "0003"){
-                    return '智宝';
-                }
-                if(value == "0004"){
-                    return '金猪管家';
-                }
-                if(value == "0005"){
-                    return '易信管家';
-                }
-                if(value == "0006"){
-                    return '盛达管家';
+                    return '精彩生活';
                 }
             }
         }, {

@@ -1,4 +1,5 @@
-	<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -12,7 +13,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<div class="col-sm-8">
 					<input id="merChantId" name="merChantId"  class="form-control" type="text" value="${merChants.merChantId }" readonly="readonly">
 						<!-- validate="{required:true,messages:{required:'请填写角色名'}}"> -->
-						<span class="help-block m-b-none">
+					<span class="help-block m-b-none"></span>
 				</div>
 			</div>
 		<%-- 	<div class="form-group">
@@ -26,50 +27,67 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<label class="col-sm-3 control-label">手机号：</label>
 				<div class="col-sm-8">
 					<input id="merMp" name="merMp"  class="form-control" type="text" value="${merChants.merMp }">
-						<span class="help-block m-b-none">
+					<span class="help-block m-b-none"></span>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label">代理商等级：</label>
 				<div class="col-sm-8">
 					<input id="agentStatus" name="agentStatus"  class="form-control" type="text" value="${merChants.agentStatus }">
-						<span class="help-block m-b-none">
+					<span class="help-block m-b-none"></span>
 				</div>
 			</div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label">商户等级：</label>
 				<div class="col-sm-8">
 					<input id="merType" name="merType"  class="form-control" type="text" value="${merChants.merType }">
-						<span class="help-block m-b-none">
+					<span class="help-block m-b-none"></span>
 				</div>
 			</div>
+			<div class="form-group">
+					<label class="col-sm-3 control-label">功能是否打开：</label>
+
+							<label><input type="radio" value="1" ${merChants.isNotUse == 1 ? 'checked="checked" ' : null} name="isNotUse"> <i></i> 是(可用)</label>
+							<label><input type="radio" value="2" ${merChants.isNotUse == 2 ? 'checked="checked" ' : null} name="isNotUse"> <i></i> 否(不可用)</label>
+
+					<span class="help-block m-b-none"></span>
+			</div>
+				<%--<div class="form-group">
+					<label class="col-sm-3 control-label">是否启用：</label>
+					<div class="col-sm-8">
+						<div class="radio i-checks">
+							<label><input type="radio" value="1" checked="checked" name="isEnabled"> <i></i> 禁用</label>
+							<label><input type="radio" value="2" ${merChants.isNotUse == 2 ? 'checked="checked" ' : null} name="isEnabled"> <i></i> 启用</label>
+						</div>
+					</div>
+				</div>--%>
 			<div style ="display:none">
 				<div class="form-group">
 					<label class="col-sm-3 control-label">费率：</label>
 					<div class="col-sm-8">
 						<input id="merChantFee" name="merChantFee"  class="form-control" type="text" value="${merChants.merChantFee }">
-							<span class="help-block m-b-none">
+						<span class="help-block m-b-none"></span>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-3 control-label">提现代发费：</label>
 					<div class="col-sm-8">
 						<input id="generationFee" name="generationFee"  class="form-control" type="text" value="${merChants.generationFee }">
-							<span class="help-block m-b-none">
+						<span class="help-block m-b-none"></span>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-3 control-label">还款代发费：</label>
 					<div class="col-sm-8">
 						<input id="generationFeeRepayment" name="generationFeeRepayment"  class="form-control" type="text" value="${merChants.generationFeeRepayment }">
-							<span class="help-block m-b-none">
+						<span class="help-block m-b-none"></span>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="col-sm-3 control-label">增加的天数：</label>
 					<div class="col-sm-8">
 						<input id="time" name="time"  class="form-control" type="text" value="0">
-							<span class="help-block m-b-none">
+						<span class="help-block m-b-none"></span>
 					</div>
 				</div>
 			</div>
@@ -81,7 +99,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
 
 <script type="text/javascript">
-
  $(function(){
   	save = function(obj) {
   		if($("#merChantsForm").valid()){
